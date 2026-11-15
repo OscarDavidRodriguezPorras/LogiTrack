@@ -1,10 +1,21 @@
 package com.s2.Logitrack.model;
 
 import jakarta.persistence.*;
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
 
 import java.time.LocalDateTime;
 
+@Entity
+@Table(name = "usuarios")
+@Getter
+@Setter
+@NoArgsConstructor
+@AllArgsConstructor
 public class Usuario {
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
@@ -16,7 +27,7 @@ public class Usuario {
     private String username;
 
     @Column(nullable = false, length = 100)
-    private String password;
+    private String password; // hash BCrypt
 
     @ManyToOne(fetch = FetchType.EAGER, optional = false)
     @JoinColumn(name = "rol_id", nullable = false)
@@ -29,8 +40,8 @@ public class Usuario {
     private LocalDateTime fechaCreacion;
 
     @PrePersist
-    void antesDeGuardar(){
-        if(fechaCreacion == null){
+    void antesDeGuardar() {
+        if (fechaCreacion == null) {
             fechaCreacion = LocalDateTime.now();
         }
     }

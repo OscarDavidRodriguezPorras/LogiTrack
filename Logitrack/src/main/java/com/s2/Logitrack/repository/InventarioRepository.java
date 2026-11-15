@@ -15,7 +15,7 @@ public interface InventarioRepository extends JpaRepository<Inventario, Long> {
     List<Inventario> findByBodegaId(Long bodegaId);
 
     @Query("""
-            select new com.s2.logitrack.dto.response.StockBodegaResponse(b.id, b.nombre, coalesce(sum(i.cantidad), 0L))
+            select new com.s2.Logitrack.dto.response.StockBodegaResponse(b.id, b.nombre, coalesce(sum(i.cantidad), 0L))
             from Bodega b left join Inventario i on i.bodega = b
             group by b.id, b.nombre
             order by b.nombre

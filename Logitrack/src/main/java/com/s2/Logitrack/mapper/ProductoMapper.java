@@ -13,7 +13,6 @@ public class ProductoMapper {
         producto.setNombre(request.nombre());
         producto.setCategoria(request.categoria());
         producto.setPrecio(request.precio());
-        producto.setStock(request.stock());
         return producto;
     }
 

@@ -12,7 +12,7 @@ public interface DetalleMovimientoRepository extends JpaRepository<DetalleMovimi
 
     // Reporte: productos más movidos (usar PageRequest.of(0, N) para limitar)
     @Query("""
-            select new com.s2.logitrack.dto.response.ProductoMovidoResponse(p.id, p.nombre, sum(d.cantidad))
+            select new com.s2.Logitrack.dto.response.ProductoMovidoResponse(p.id, p.nombre, sum(d.cantidad))
             from DetalleMovimiento d join d.producto p
             group by p.id, p.nombre
             order by sum(d.cantidad) desc
