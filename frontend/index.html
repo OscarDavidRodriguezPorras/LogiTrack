@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>LogiTrack - Iniciar sesión</title>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body class="login-page">
+  <section class="brand-side">
+    <div class="logo"><b>L</b>LogiTrack</div>
+    <div>
+      <h2>Inventario de todas tus bodegas, con cada cambio registrado.</h2>
+      <p>Controla entradas, salidas y transferencias, y revisa quién hizo qué y cuándo.</p>
+      <ul><li>Stock por bodega en tiempo real</li><li>Auditoría automática de cambios</li><li>Acceso por rol: administrador y empleado</li></ul>
+    </div>
+    <small>LogiTrack S.A.</small>
+  </section>
+  <section class="form-side">
+    <div class="login-card">
+      <h1>Bienvenido</h1>
+      <p class="sub">Ingresa para gestionar tus bodegas.</p>
+      <div class="switch">
+        <button id="btn-mostrar-login" class="activo" type="button">Iniciar sesión</button>
+        <button id="btn-mostrar-registro" type="button">Registrarse</button>
+      </div>
+      <div id="mensaje" class="mensaje oculto"></div>
+      <form id="form-login">
+        <label for="login-username">Usuario</label>
+        <input id="login-username" type="text" autocomplete="username" required>
+        <label for="login-password">Contraseña</label>
+        <input id="login-password" type="password" autocomplete="current-password" required>
+        <button class="btn btn-block" type="submit">Entrar</button>
+      </form>
+      <form id="form-registro" class="oculto">
+        <label for="reg-nombre">Nombre completo</label>
+        <input id="reg-nombre" type="text" required minlength="2" maxlength="100">
+        <label for="reg-username">Usuario (mínimo 4 caracteres)</label>
+        <input id="reg-username" type="text" required minlength="4" maxlength="50">
+        <label for="reg-password">Contraseña (mínimo 6 caracteres)</label>
+        <input id="reg-password" type="password" required minlength="6" maxlength="50">
+        <button class="btn btn-block" type="submit">Crear cuenta de empleado</button>
+      </form>
+    </div>
+  </section>
+  <script src="js/api.js"></script>
+  <script src="js/login.js"></script>
+</body>
+</html>

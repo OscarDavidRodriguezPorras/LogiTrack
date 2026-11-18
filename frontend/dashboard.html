@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>LogiTrack - Panel</title>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+<div class="app">
+  <aside class="sidebar">
+    <div class="logo"><b>L</b>LogiTrack</div>
+    <button class="nav-btn active" data-tab="resumen" data-i="home">Resumen</button>
+    <button class="nav-btn" data-tab="bodegas" data-i="build">Bodegas</button>
+    <button class="nav-btn" data-tab="productos" data-i="box">Productos</button>
+    <button class="nav-btn" data-tab="movimientos" data-i="swap">Movimientos</button>
+    <button class="nav-btn solo-admin" data-tab="auditorias" data-i="shield">Auditorías</button>
+    <div class="side-foot">Sesión protegida con JWT</div>
+  </aside>
+  <div>
+    <header class="topbar">
+      <h2 id="titulo-pagina">Resumen</h2>
+      <div class="notif-wrap solo-admin">
+        <button id="btn-notif" class="icon-btn" type="button" aria-label="Notificaciones" data-i="bell"><span id="notif-count" class="dot oculto">0</span></button>
+        <div id="panel-notif" class="notif oculto">
+          <div class="notif-head"><strong>Notificaciones</strong><button id="btn-aprobar-todo" class="btn btn-sec btn-sm" type="button">Marcar todo como visto</button></div>
+          <div class="ntabs" id="ntabs">
+            <button class="on" data-f="todo">Todo</button><button data-f="aprobar">Por aprobar</button><button data-f="cambio">Cambios</button><button data-f="alerta">Alertas</button>
+          </div>
+          <div id="nlist" class="nlist"></div>
+        </div>
+      </div>
+      <div class="chip"><span class="avatar" id="avatar"></span><div><span id="usuario-nombre"></span><small id="usuario-rol"></small></div></div>
+      <button id="btn-logout" class="btn btn-sec btn-sm" type="button">Salir</button>
+    </header>
+    <main>
+      <section id="tab-resumen">
+        <div class="kpis" id="kpis"></div>
+        <div class="grid-2">
+          <div class="panel"><div class="panel-head"><h3>Ocupación por bodega</h3></div><div id="resumen-stock"></div></div>
+          <div class="panel"><div class="panel-head"><h3>Productos más movidos</h3></div><div id="resumen-movidos"></div></div>
+        </div>
+        <div class="panel"><div class="panel-head"><h3>Últimos movimientos</h3></div><div id="resumen-ultimos"></div></div>
+      </section>
+
+      <section id="tab-bodegas" class="oculto">
+        <div class="panel">
+          <div class="panel-head"><h3>Bodegas</h3><div class="tools"><input id="buscar-bodegas" type="search" placeholder="Buscar bodega o ciudad"><button class="btn solo-admin" id="btn-nueva-bodega" type="button">Nueva bodega</button></div></div>
+          <div id="lista-bodegas"></div>
+        </div>
+      </section>
+
+      <section id="tab-productos" class="oculto">
+        <div class="panel">
+          <div class="panel-head"><h3 id="titulo-productos">Productos</h3>
+            <div class="tools"><input id="buscar-productos" type="search" placeholder="Buscar producto o categoría">
+              <button id="btn-todos-productos" class="btn btn-sec" type="button">Todos</button>
+              <button id="btn-stock-bajo" class="btn btn-sec" type="button">Stock bajo (&lt; 10)</button>
+              <button class="btn solo-admin" id="btn-nuevo-producto" type="button">Nuevo producto</button></div></div>
+          <div id="lista-productos"></div>
+        </div>
+      </section>
+
+      <section id="tab-movimientos" class="oculto">
+        <div class="panel">
+          <div class="panel-head"><h3>Registrar movimiento</h3></div>
+          <form id="form-movimiento">
+            <div class="form-grid">
+              <div><label for="mov-tipo">Tipo</label><select id="mov-tipo"><option>ENTRADA</option><option>SALIDA</option><option>TRANSFERENCIA</option></select></div>
+              <div id="grupo-origen"><label for="mov-origen">Bodega origen</label><select id="mov-origen"></select></div>
+              <div id="grupo-destino"><label for="mov-destino">Bodega destino</label><select id="mov-destino"></select></div>
+            </div>
+            <label>Productos</label><div id="lineas"></div>
+            <button id="btn-agregar-linea" class="btn btn-sec btn-sm" type="button">Agregar producto</button>
+            <label for="mov-observacion">Observación (opcional)</label>
+            <input id="mov-observacion" type="text" maxlength="255">
+            <button class="btn btn-block" type="submit">Registrar movimiento</button>
+          </form>
+        </div>
+        <div class="panel">
+          <div class="panel-head"><h3>Historial</h3></div>
+          <div class="filtros">
+            <div><label for="fecha-desde">Desde</label><input id="fecha-desde" type="date"></div>
+            <div><label for="fecha-hasta">Hasta</label><input id="fecha-hasta" type="date"></div>
+            <button id="btn-filtrar-fechas" class="btn" type="button">Filtrar</button>
+            <button id="btn-todos-mov" class="btn btn-sec" type="button">Ver todos</button>
+          </div>
+          <div id="lista-movimientos"></div>
+        </div>
+      </section>
+
+      <section id="tab-auditorias" class="oculto solo-admin">
+        <div class="panel">
+          <div class="panel-head"><h3>Auditoría de cambios</h3></div>
+          <div class="filtros">
+            <div><label for="aud-usuario">Usuario</label><input id="aud-usuario" type="text" placeholder="ej: admin"></div>
+            <div><label for="aud-operacion">Operación</label><select id="aud-operacion"><option value="">Todas</option><option>INSERT</option><option>UPDATE</option><option>DELETE</option></select></div>
+            <button id="btn-filtrar-aud" class="btn" type="button">Filtrar</button>
+          </div>
+          <div id="lista-auditorias"></div>
+        </div>
+      </section>
+    </main>
+  </div>
+</div>
+<div id="toasts"></div>
+<script src="js/api.js"></script>
+<script src="js/dashboard.js"></script>
+</body>
+</html>
