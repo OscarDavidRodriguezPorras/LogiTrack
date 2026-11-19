@@ -185,29 +185,9 @@ http://localhost:8080/v3/api-docs
 
 No publiques tokens reales en capturas, repositorios ni documentación.
 
-## Capturas de pantalla sugeridas
-
-Guarda tus imágenes en una carpeta `docs/images/` y utiliza estos nombres para que las puedas insertar en este README:
-
-| Nombre de archivo | Qué mostrar |
-|---|---|
-| `login.png` | Pantalla de inicio de sesión |
-| `dashboard.png` | Dashboard con resumen/KPIs |
-| `bodegas.png` | Lista o gestión de bodegas |
-| `productos.png` | Catálogo de productos |
-| `stock-bajo.png` | Filtro de productos con stock bajo |
-| `movimiento.png` | Formulario para registrar entrada, salida o transferencia |
-| `historial-movimientos.png` | Historial de movimientos con filtros de fecha |
-| `auditoria.png` | Registros de auditoría y filtros |
-| `reporte.png` | Reporte general, stock por bodega y productos más movidos |
-| `swagger.png` | Swagger UI con endpoints desplegados |
-| `swagger-auth.png` | Ejemplo de endpoint protegido autorizado con JWT |
-
-
-md
 ## Imagenes
 
-![Inicio de sesión](images/login.png)
+!['Inicio de sesión'](images/login.png)
 
 ![Dashboard](images/dashboard.png)
 
