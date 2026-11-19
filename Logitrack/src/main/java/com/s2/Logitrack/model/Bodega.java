@@ -5,6 +5,8 @@ import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
+import java.util.LinkedHashMap;
+import java.util.Map;
 
 @Entity
 @Table(name = "bodegas")
@@ -12,8 +14,8 @@ import lombok.Setter;
 @Setter
 @NoArgsConstructor
 @AllArgsConstructor
+public class Bodega extends AuditableEntity {
 
-public class Bodega {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
@@ -29,4 +31,14 @@ public class Bodega {
 
     @Column(nullable = false, length = 100)
     private String encargado;
+
+    @Override
+    public Map<String, Object> valoresAuditables() {
+        Map<String, Object> v = new LinkedHashMap<>();
+        v.put("nombre", nombre);
+        v.put("ubicacion", ubicacion);
+        v.put("capacidad", capacidad);
+        v.put("encargado", encargado);
+        return v;
+    }
 }

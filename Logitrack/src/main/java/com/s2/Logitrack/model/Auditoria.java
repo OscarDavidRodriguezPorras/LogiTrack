@@ -6,8 +6,6 @@ import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
-import org.hibernate.annotations.Audited;
-import org.springframework.data.annotation.Id;
 
 import java.time.LocalDateTime;
 
@@ -30,6 +28,7 @@ public class Auditoria {
     @Column(name = "fecha_hora", nullable = false)
     private LocalDateTime fechaHora;
 
+    // Username como texto (no FK) para conservar el historial si el usuario se elimina
     @Column(nullable = false, length = 50)
     private String usuario;
 

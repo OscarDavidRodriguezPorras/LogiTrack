@@ -8,7 +8,7 @@ import org.springframework.data.domain.PageRequest;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-import java.awt.print.Pageable;
+
 
 @Service
 @RequiredArgsConstructor
@@ -23,6 +23,6 @@ public class ReporteService {
     public ResumenGeneralResponse resumenGeneral() {
         return new ResumenGeneralResponse(
                 inventarioRepository.stockTotalPorBodega(),
-                detalleMovimientoRepository.productosMasMovidos((Pageable) PageRequest.of(0, TOP_PRODUCTOS)));
+                detalleMovimientoRepository.productosMasMovidos(PageRequest.of(0, TOP_PRODUCTOS)));
     }
 }

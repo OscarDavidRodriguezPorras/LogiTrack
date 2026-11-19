@@ -1,10 +1,17 @@
 package com.s2.Logitrack.model;
 
-import jakarta.persistence.Column;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
 
+@Entity
+@Table(name = "roles")
+@Getter
+@Setter
+@NoArgsConstructor
+@AllArgsConstructor
 public class Rol {
 
     @Id
@@ -12,7 +19,7 @@ public class Rol {
     private Long id;
 
     @Column(nullable = false, unique = true, length = 30)
-    private String nombre;
+    private String nombre; // ADMIN, EMPLEADO
 
     @Column(length = 150)
     private String descripcion;

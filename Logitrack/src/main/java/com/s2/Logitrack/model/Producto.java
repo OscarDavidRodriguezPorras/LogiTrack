@@ -5,6 +5,8 @@ import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
+import java.util.LinkedHashMap;
+import java.util.Map;
 
 import java.math.BigDecimal;
 
@@ -14,7 +16,7 @@ import java.math.BigDecimal;
 @Setter
 @NoArgsConstructor
 @AllArgsConstructor
-public class Producto {
+public class Producto extends AuditableEntity {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -32,4 +34,14 @@ public class Producto {
 
     @Column(nullable = false, precision = 12, scale = 2)
     private BigDecimal precio;
+
+    @Override
+    public Map<String, Object> valoresAuditables() {
+        Map<String, Object> v = new LinkedHashMap<>();
+        v.put("nombre", nombre);
+        v.put("categoria", categoria);
+        v.put("stock", stock);
+        v.put("precio", precio);
+        return v;
+    }
 }
