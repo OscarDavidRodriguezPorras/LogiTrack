@@ -57,7 +57,7 @@ function mostrarTab(nombre) {
 function tabla(columnas, filas, vacio) {
   if (!filas || !filas.length) return '<p class="vacio">' + (vacio || "No hay datos para mostrar.") + "</p>";
   const cab = columnas.map((c) => "<th>" + esc(c.t) + "</th>").join("");
-  const cuerpo = filas.map((f) => "<tr>" + columnas.map((c) => "<td>" + (c.h ? c.h(f) : esc(c.v(f))) + "</td>").join("") + "</tr>").join("");
+  const cuerpo = filas.map((f) => "<tr>" + columnas.map((c) => '<td data-label="' + esc(c.t) + '">' + (c.h ? c.h(f) : esc(c.v(f))) + "</td>").join("") + "</tr>").join("");
   return '<div class="tabla-wrap"><table><thead><tr>' + cab + "</tr></thead><tbody>" + cuerpo + "</tbody></table></div>";
 }
 async function cargar(id, peticion, html) {
