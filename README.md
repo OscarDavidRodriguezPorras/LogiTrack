@@ -207,27 +207,27 @@ Guarda tus imágenes en una carpeta `docs/images/` y utiliza estos nombres para 
 ```md
 ## Imagenes
 
-![Inicio de sesión](docs/images/login.png)
+![Inicio de sesión](images/login.png)
 
-![Dashboard](docs/images/dashboard.png)
+![Dashboard](images/dashboard.png)
 
-![Gestión de bodegas](docs/images/bodegas.png)
+![Gestión de bodegas](images/bodegas.png)
 
-![Gestión de productos](docs/images/productos.png)
+![Gestión de productos](images/productos.png)
 
-![Stock bajo](docs/images/stock-bajo.png)
+![Stock bajo](images/stock-bajo.png)
 
-![Movimiento](docs/images/movimiento.png)
+![Movimiento](images/movimiento.png)
 
-![Historial de movimientos](docs/images/historial.png)
+![Historial de movimientos](images/historial.png)
 
-![Auditoria](docs/images/auditoria.png)
+![Auditoria](images/auditoria.png)
 
-![Reporte General](docs/images/reporte.png)
+![Reporte General](images/reporte.png)
 
-![Swagger](docs/images/swagger.png)
+![Swagger](images/swagger.png)
 
-![Swagger-auth](docs/images/swagger-auth.png)
+![Swagger-auth](images/swagger-auth.png)
 ```
 
 ## Manejo de errores
