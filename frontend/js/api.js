@@ -1,5 +1,5 @@
 // Configuración y utilidades compartidas por todas las páginas
-const API_URL = "http://localhost:8080";
+const API_URL = "http://192.168.33.29:8080";
 
 // ---------- Sesión (el token se guarda solo mientras la pestaña esté abierta) ----------
 function getSession() {
