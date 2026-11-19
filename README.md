@@ -202,20 +202,10 @@ Guarda tus imágenes en una carpeta `docs/images/` y utiliza estos nombres para 
 | `reporte.png` | Reporte general, stock por bodega y productos más movidos |
 | `swagger.png` | Swagger UI con endpoints desplegados |
 | `swagger-auth.png` | Ejemplo de endpoint protegido autorizado con JWT |
-| `prueba-jwt.png` | Prueba de endpoint protegido exitosa (sin mostrar el token completo) |
 
-### Cómo agregar las capturas
-
-Crea la carpeta `docs/images/` en la raíz del repositorio y coloca allí las capturas. Luego, puedes insertar imágenes usando Markdown:
 
 ```md
-![Dashboard de LogiTrack](docs/images/dashboard.png)
-```
-
-Ejemplo de sección de galería:
-
-```md
-## Interfaz
+## Imagenes
 
 ![Inicio de sesión](docs/images/login.png)
 
@@ -224,6 +214,20 @@ Ejemplo de sección de galería:
 ![Gestión de bodegas](docs/images/bodegas.png)
 
 ![Gestión de productos](docs/images/productos.png)
+
+![Stock bajo](docs/images/stock-bajo.png)
+
+![Movimiento](docs/images/movimiento.png)
+
+![Historial de movimientos](docs/images/historial.png)
+
+![Auditoria](docs/images/auditoria.png)
+
+![Reporte General](docs/images/reporte.png)
+
+![Swagger](docs/images/swagger.png)
+
+![Swagger-auth](docs/images/swagger-auth.png)
 ```
 
 ## Manejo de errores
